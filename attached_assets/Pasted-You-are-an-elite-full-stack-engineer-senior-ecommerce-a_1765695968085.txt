@@ -1,0 +1,251 @@
+You are an elite full-stack engineer, senior ecommerce architect, and high-end fashion product designer.
+
+Build a production-ready premium ecommerce website for a fashion brand called MINES CLOTHING.
+
+The brand is Instagram-first, minimalist streetwear, with a calm, confident, editorial feel. The website must look intentional, exclusive, and modern — never template-like or gimmicky.
+
+BRAND CONTEXT
+
+Brand: Mines Clothing
+Audience: 16–28, urban, fashion-aware, mobile-first
+Brand Traits: Minimal, bold, controlled, modern
+Current Status: Store is closed, preparing for future drops
+
+DESIGN & UX DIRECTION (STRICT)
+
+Mobile-first (desktop adapts from mobile)
+
+Minimal color palette (black, off-white, muted neutrals)
+
+Editorial typography
+
+Large imagery, strong spacing, confident layout
+
+No gradients, no neon, no over-decoration
+
+Animation Rules:
+
+Use GSAP + ScrollTrigger
+
+Animations must be subtle and purposeful
+
+Examples:
+
+Hero text reveal on load
+
+Product cards gently fade/slide into view
+
+Section transitions with smooth easing
+
+No scroll hijacking, no excessive parallax
+
+Performance always comes before animation.
+
+WEBSITE PAGES
+1. Home
+
+Hero section with strong brand statement
+
+Featured products or upcoming drop preview
+
+Short brand philosophy
+
+Instagram visual integration
+
+2. Shop / Collections
+
+Clean product grid
+
+Minimal filters (size, category)
+
+Fast loading with skeleton states
+
+3. Product Page
+
+Image gallery (front, back, detail)
+
+Clear pricing
+
+Size selector + size chart modal
+
+Fabric, fit, and care info (concise)
+
+Shipping & returns clarity
+
+Prominent Add-to-Cart CTA
+
+4. About
+
+Short, confident brand explanation
+
+No long storytelling or exaggerated mission statements
+
+5. Contact
+
+Email
+
+Instagram
+
+Optional WhatsApp
+
+STORE MODE LOGIC
+
+Implement two global modes:
+
+Closed Mode (default):
+
+Checkout disabled
+
+“Drop Coming Soon” messaging
+
+Phone number capture for launch notifications
+
+Open Mode:
+
+Full checkout enabled
+
+Inventory enforcement active
+
+Store owner must be able to toggle modes from the admin panel.
+
+BACKEND FUNCTIONALITY
+
+Build a real backend architecture.
+
+Core Systems:
+
+User authentication (guest + optional accounts)
+
+Product & collection management
+
+Size-based inventory tracking
+
+Cart & checkout logic
+
+Order lifecycle management
+
+Admin dashboard (products, orders, inventory, customers)
+
+PHONE NUMBER HANDLING (IMPORTANT)
+
+Capture phone number during checkout OR drop-notification signup
+
+Validate format
+
+Store securely
+
+Use phone numbers for:
+
+Order updates
+
+Drop launch notifications
+
+Do not force phone number input too early in the journey.
+
+DATABASE SCHEMA (REQUIRED)
+
+Design a scalable relational database.
+
+Users
+
+id
+
+name
+
+email
+
+phone_number
+
+password_hash
+
+created_at
+
+Products
+
+id
+
+name
+
+description
+
+price
+
+category
+
+status (active / upcoming / archived)
+
+ProductImages
+
+id
+
+product_id
+
+image_url
+
+display_order
+
+Sizes
+
+id
+
+label
+
+Inventory
+
+product_id
+
+size_id
+
+quantity
+
+Orders
+
+id
+
+user_id (nullable for guest checkout)
+
+phone_number
+
+total_price
+
+status (pending, paid, shipped, delivered)
+
+created_at
+
+OrderItems
+
+order_id
+
+product_id
+
+size_id
+
+quantity
+
+price_at_purchase
+
+COMPONENT & TECH EXPECTATIONS
+
+Use modern, headless, reusable components
+
+Prioritize accessibility and performance
+
+SEO-friendly markup
+
+Avoid heavy UI libraries that restrict custom design
+
+OUTPUT REQUIRED
+
+Final UI/UX layout decisions
+
+GSAP animation strategy
+
+Backend logic explanation
+
+Database schema
+
+Admin workflows
+
+Production-ready architecture
+
+Build this as if Mines Clothing is preparing to scale seriously after reopening.
