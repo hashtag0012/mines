@@ -67,13 +67,17 @@
     "postgres": "^3.4.5",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "ws": "^8.18.0",
-    "zod": "^3.25.76",
     "vite": "^7.1.9",
-    "@vitejs/plugin-react": "^5.0.4"
+    "ws": "^8.18.0",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "@vitejs/plugin-react": "^5.1.2",
+    "autoprefixer": "^10.4.23",
     "cross-env": "^10.1.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
     "tsx": "^4.20.5",
     "typescript": "5.6.3"
   }
