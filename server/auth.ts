@@ -26,12 +26,18 @@ if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
   throw new Error("GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET must be set");
 }
 
+const isProd = process.env.NODE_ENV === "production";
+
+const callbackURL = isProd
+  ? "https://mines-0s6n.onrender.com/api/auth/google/callback"
+  : "http://localhost:5000/api/auth/google/callback";
+
 passport.use(
   new GoogleStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: process.env.GOOGLE_CALLBACK_URL || "http://localhost:5000/api/auth/google/callback",
+      clientID: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      callbackURL: process.env.GOOGLE_CALLBACK_URL || callbackURL,
     },
     async (_accessToken, _refreshToken, profile, done) => {
       try {
