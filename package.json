@@ -8,15 +8,11 @@
     "build:client": "vite build",
     "build:server": "tsc -p tsconfig.server.json",
     "build": "npm run build:client && npm run build:server",
-    "start": "node build/index.js",
+    "postinstall": "npm run build",
+    "start": "cross-env NODE_ENV=production node build/server/index.js",
     "check": "tsc --noEmit",
     "db:push": "drizzle-kit push",
     "test": "set NODE_OPTIONS=--experimental-vm-modules && jest",
-    "test:auth": "set NODE_OPTIONS=--experimental-vm-modules && jest tests/auth.test.ts",
-    "test:orders": "set NODE_OPTIONS=--experimental-vm-modules && jest tests/orders.test.ts",
-    "test:users": "set NODE_OPTIONS=--experimental-vm-modules && jest tests/users.test.ts",
-    "test:order-items": "set NODE_OPTIONS=--experimental-vm-modules && jest tests/order-items.test.ts",
-    "test:api": "set NODE_OPTIONS=--experimental-vm-modules && jest tests/api.test.ts --detectOpenHandles",
     "stress": "node scripts/stress-test.js"
   },
   "dependencies": {
