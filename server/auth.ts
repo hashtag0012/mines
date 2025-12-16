@@ -29,7 +29,7 @@ if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
 const isProd = process.env.NODE_ENV === "production";
 
 const callbackURL = isProd
-  ? "https://mines-0s6n.onrender.com/api/auth/google/callback"
+  ? "https://mines-r5md.onrender.com/api/auth/google/callback"
   : "http://localhost:5000/api/auth/google/callback";
 
 passport.use(
