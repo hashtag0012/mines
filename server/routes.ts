@@ -3,13 +3,13 @@ import session from "express-session";
 import { createServer, Server } from "http";
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
-import { passport } from "./auth"; // make sure auth.ts exports passport configured
-import { storage } from "./storage";
+import { passport } from "./auth.js"; // make sure auth.ts exports passport configured
+import { storage } from "./storage.js";
 import {
   insertUserSchema,
   insertOrderSchema,
   insertOrderItemSchema
-} from "@shared/schema";
+} from "../shared/schema.js";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -123,7 +123,7 @@ export async function registerRoutes(
       console.error("Error details:", err);
       if (err instanceof z.ZodError) {
         console.error("Validation errors:", err.errors);
-        return res.status(400).json({ message: fromZodError(err).message });
+        return res.status(400).json({ message: fromZodError(err as any).message });
       }
       res.status(500).json({ message: "Failed to create order" });
     }

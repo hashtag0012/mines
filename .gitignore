@@ -4,4 +4,10 @@ dist
 server/public
 vite.config.ts.*
 *.tar.gz
-.env
+.env*
+build/
+tests/
+*.test.ts
+*.test.js
+jest.config.js
+scripts/stress-test.js

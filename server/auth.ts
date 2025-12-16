@@ -1,7 +1,7 @@
 import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
-import { storage } from "./storage";
-import type { User as AppUser } from "@shared/schema";
+import { storage } from "./storage.js";
+import type { User as AppUser } from "../shared/schema.js";
 
 declare global {
   namespace Express {

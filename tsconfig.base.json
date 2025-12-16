@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+
+    "strict": true,
+    "skipLibCheck": true,
+
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "jsx": "preserve",
+
+    "esModuleInterop": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["client/src/*"],
+      "@shared/*": ["shared/*"]
+    },
+
+    "types": ["node", "vite/client"]
+  },
+  "include": ["client/src/**/*", "server/**/*", "shared/**/*"],
+  "exclude": ["node_modules", "build", "dist"]
+}

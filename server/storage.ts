@@ -1,4 +1,4 @@
-import { type User, type InsertUser, type Product, type InsertProduct, type ProductSize, type InsertProductSize, type ProductImage, type InsertProductImage, type Order, type InsertOrder, type OrderItem, type InsertOrderItem, type DropSignup, type InsertDropSignup, users, products, productSizes, productImages, orders, orderItems, dropSignups } from "@shared/schema";
+import { type User, type InsertUser, type Product, type InsertProduct, type ProductSize, type InsertProductSize, type ProductImage, type InsertProductImage, type Order, type InsertOrder, type OrderItem, type InsertOrderItem, type DropSignup, type InsertDropSignup, users, products, productSizes, productImages, orders, orderItems, dropSignups } from "../shared/schema.js";
 import { db } from "./db.js";
 import { eq, desc } from "drizzle-orm";
 

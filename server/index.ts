@@ -1,11 +1,11 @@
 import "dotenv/config";
 import express, { type Request, Response, NextFunction } from "express";
-import { registerRoutes } from "./routes";
-import { serveStatic } from "./static";
+import { registerRoutes } from "./routes.js";
+import { serveStatic } from "./static.js";
 import { createServer } from "http";
 import session from "express-session";
-import { passport } from "./auth";
-import { initializeDatabase } from "./init-db";
+import { passport } from "./auth.js";
+import { initializeDatabase } from "./init-db.js";
 import MemoryStoreFactory from "memorystore";
 
 const MemoryStore = MemoryStoreFactory(session);
@@ -105,7 +105,7 @@ app.use((req, res, next) => {
   if (process.env.NODE_ENV === "production") {
     serveStatic(app);
   } else {
-    const { setupVite } = await import("./vite");
+    const { setupVite } = await import("./vite.js");
     await setupVite(httpServer, app);
   }
 
