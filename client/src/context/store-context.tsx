@@ -4,95 +4,73 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { useAuth } from "@/context/auth-context";
 
-// Simple product data
+// Simple product data based on PNG filenames
 const SIMPLE_PRODUCTS: Product[] = [
   {
     id: 1,
-    name: "Class T-Shirt",
-    price: 29.99,
-    image: "https://image.artistshot.com/p.132-sport_grey_heather-ffffff-3-800x800.jpg",
+    name: "Corduroy Quarter Zip",
+    price: 79.99,
+    image: "/photos/Corduroy quarter zips.png",
     category: "Tops",
-    description: "Premium class t-shirt with custom design",
+    description: "Premium corduroy quarter zip pullover",
     available: true,
     sizes: ["S", "M", "L", "XL"],
     availableSizes: ["S", "M", "L", "XL"]
   },
   {
     id: 2,
-    name: "Denim Jeans",
-    price: 79.99,
-    image: "https://media.gettyimages.com/id/1459710418/photo/high-angle-view-of-jeans-on-white-background-indonesia.jpg?s=612x612&w=0&k=20&c=cVi_mKB5Kz8_R_kXMF5GYBAW4ha9DCM7xXTAV0dq9GA=",
-    category: "Bottoms",
-    description: "Classic denim jeans",
+    name: "High Neck Sweater",
+    price: 89.99,
+    image: "/photos/highneck.png",
+    category: "Tops",
+    description: "Premium high neck sweater",
     available: true,
-    sizes: ["28", "30", "32", "34"],
-    availableSizes: ["28", "30", "32", "34"]
+    sizes: ["S", "M", "L", "XL"],
+    availableSizes: ["S", "M", "L", "XL"]
   },
   {
     id: 3,
-    name: "Hoodie",
-    price: 59.99,
-    image: "https://sfycdn.speedsize.com/fbaf6506-81e1-43a2-bcc1-80e18c7b0146/uk.representclo.com/cdn/shop/files/OBZGJkUZw9ZjdHHptPka8o4waJcbCM-1eZUcgI3_UA.jpg?v=1722438614&width=2000",
+    name: "Winter Upper",
+    price: 99.99,
+    image: "/photos/winterupper.png",
     category: "Tops",
-    description: "Comfortable cotton hoodie",
+    description: "Heavyweight winter upper garment",
     available: true,
     sizes: ["S", "M", "L", "XL"],
     availableSizes: ["S", "M", "L", "XL"]
   },
   {
     id: 4,
-    name: "Cargo Shorts",
-    price: 49.99,
-    image: "https://m.media-amazon.com/images/I/51rsMMG4HuL.jpg",
-    category: "Bottoms",
-    description: "Utility cargo shorts",
+    name: "Turtleneck",
+    price: 69.99,
+    image: "/photos/tneck.png",
+    category: "Tops",
+    description: "Classic turtleneck sweater",
     available: true,
     sizes: ["S", "M", "L", "XL"],
     availableSizes: ["S", "M", "L", "XL"]
   },
   {
     id: 5,
-    name: "Baseball Cap",
-    price: 24.99,
-    image: "https://static.vecteezy.com/system/resources/thumbnails/023/440/624/small/baseball-black-cap-on-table-generate-ai-photo.jpg",
-    category: "Accessories",
-    description: "Classic baseball cap",
-    available: true,
-    sizes: ["One Size"],
-    availableSizes: ["One Size"]
-  },
-  {
-    id: 6,
-    name: "Sneakers",
-    price: 89.99,
-    image: "https://static.vecteezy.com/system/resources/thumbnails/027/179/278/small/red-leather-sneakers-with-white-soles-3-free-photo.jpg",
-    category: "Footwear",
-    description: "Modern athletic sneakers",
-    available: true,
-    sizes: ["8", "9", "10", "11"],
-    availableSizes: ["8", "9", "10", "11"]
-  },
-  {
-    id: 7,
-    name: "Leather Jacket",
-    price: 199.99,
-    image: "https://www.jackjones.in/cdn/shop/files/902084901_gback_a694f2d6-201f-44aa-899a-2b76137f5d83.jpg?v=1758867737&width=1080",
-    category: "Tops",
-    description: "Genuine leather jacket",
-    available: true,
-    sizes: ["S", "M", "L", "XL"],
-    availableSizes: ["S", "M", "L", "XL"]
-  },
-  {
-    id: 8,
-    name: "Chinos",
-    price: 69.99,
-    image: "https://media.gq.com/photos/667dc663efa6899a54c4e3fc/3:4/w_748,c_limit/Studio-Nicholson-GQR-Chinos-0319.jpg",
+    name: "Trousers",
+    price: 79.99,
+    image: "/photos/trousers.png",
     category: "Bottoms",
-    description: "Classic chino pants",
+    description: "Classic tailored trousers",
     available: true,
     sizes: ["28", "30", "32", "34"],
     availableSizes: ["28", "30", "32", "34"]
+  },
+  {
+    id: 6,
+    name: "Sweaters Collection",
+    price: 84.99,
+    image: "/photos/sweaters.png",
+    category: "Tops",
+    description: "Premium sweater collection",
+    available: true,
+    sizes: ["S", "M", "L", "XL"],
+    availableSizes: ["S", "M", "L", "XL"]
   }
 ];
 
