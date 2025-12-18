@@ -115,66 +115,68 @@ export default function AdminOrders() {
         <CardTitle>Orders</CardTitle>
       </CardHeader>
       <CardContent>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Order ID</TableHead>
-              <TableHead>Customer</TableHead>
-              <TableHead>Email</TableHead>
-              <TableHead>Phone</TableHead>
-              <TableHead>Products</TableHead>
-              <TableHead>Address</TableHead>
-              <TableHead>Total</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Date</TableHead>
-              <TableHead>Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {orders?.map((order: any) => (
-              <TableRow key={order.id}>
-                <TableCell className="font-mono text-xs">{order.id.slice(0, 8)}</TableCell>
-                <TableCell>{order.customerName || "Unknown"}</TableCell>
-                <TableCell className="text-sm">{order.customerEmail}</TableCell>
-                <TableCell className="text-sm font-mono">{order.customerPhone}</TableCell>
-                <TableCell>
-                  <div className="space-y-1">
-                    {orderItems?.filter((item: any) => item.orderId === order.id).map((item: any, idx: number) => (
-                      <div key={idx} className="flex items-center gap-2 text-sm">
-                        <Package className="h-3 w-3" />
-                        <span>Product {item.productId} ({item.sizeLabel}) x{item.quantity}</span>
-                        <span className="text-muted-foreground">${item.priceAtPurchase}</span>
-                      </div>
-                    ))}
-                  </div>
-                </TableCell>
-                <TableCell className="text-sm max-w-[200px] truncate">{order.customerAddress}</TableCell>
-                <TableCell>${order.totalAmount}</TableCell>
-                <TableCell>
-                  <Badge
-                    variant={
-                      order.status === "delivered"
-                        ? "default"
-                        : order.status === "cancelled"
-                        ? "destructive"
-                        : "secondary"
-                    }
-                  >
-                    {order.status}
-                  </Badge>
-                </TableCell>
-                <TableCell className="text-sm">{formatOrderDate(order.createdAt)}</TableCell>
-                <TableCell>
-                  <div className="flex items-center gap-2">
-                    <Select
-                      value={order.status}
-                      onValueChange={(value) =>
-                        updateStatusMutation.mutate({ id: order.id, status: value })
+        <div className="overflow-x-auto">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="min-w-[80px]">Order ID</TableHead>
+                <TableHead className="min-w-[120px] hidden sm:table-cell">Customer</TableHead>
+                <TableHead className="min-w-[100px] hidden md:table-cell">Email</TableHead>
+                <TableHead className="min-w-[100px] hidden lg:table-cell">Phone</TableHead>
+                <TableHead className="min-w-[120px]">Products</TableHead>
+                <TableHead className="min-w-[100px] hidden md:table-cell">Address</TableHead>
+                <TableHead className="min-w-[80px]">Total</TableHead>
+                <TableHead className="min-w-[80px]">Status</TableHead>
+                <TableHead className="min-w-[100px] hidden sm:table-cell">Date</TableHead>
+                <TableHead className="min-w-[120px]">Actions</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {orders?.map((order: any) => (
+                <TableRow key={order.id}>
+                  <TableCell className="font-mono text-xs">{order.id.slice(0, 8)}</TableCell>
+                  <TableCell className="hidden sm:table-cell">{order.customerName || "Unknown"}</TableCell>
+                  <TableCell className="text-sm hidden md:table-cell">{order.customerEmail}</TableCell>
+                  <TableCell className="text-sm font-mono hidden lg:table-cell">{order.customerPhone}</TableCell>
+                  <TableCell>
+                    <div className="space-y-1">
+                      {orderItems?.filter((item: any) => item.orderId === order.id).map((item: any, idx: number) => (
+                        <div key={idx} className="flex items-center gap-2 text-sm">
+                          <Package className="h-3 w-3" />
+                          <span className="hidden sm:inline">Product {item.productId} ({item.sizeLabel}) x{item.quantity}</span>
+                          <span className="sm:hidden">{item.productId} ({item.sizeLabel}) x{item.quantity}</span>
+                          <span className="text-muted-foreground">${item.priceAtPurchase}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </TableCell>
+                  <TableCell className="text-sm max-w-[200px] truncate hidden md:table-cell">{order.customerAddress}</TableCell>
+                  <TableCell>${order.totalAmount}</TableCell>
+                  <TableCell>
+                    <Badge
+                      variant={
+                        order.status === "delivered"
+                          ? "default"
+                          : order.status === "cancelled"
+                          ? "destructive"
+                          : "secondary"
                       }
                     >
-                      <SelectTrigger className="w-32">
-                        <SelectValue />
-                      </SelectTrigger>
+                      {order.status}
+                    </Badge>
+                  </TableCell>
+                  <TableCell className="text-sm hidden sm:table-cell">{formatOrderDate(order.createdAt)}</TableCell>
+                  <TableCell>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+                      <Select
+                        value={order.status}
+                        onValueChange={(value) =>
+                          updateStatusMutation.mutate({ id: order.id, status: value })
+                        }
+                      >
+                        <SelectTrigger className="w-full sm:w-32">
+                          <SelectValue />
+                        </SelectTrigger>
                       <SelectContent>
                         {orderStatuses.map((status) => (
                           <SelectItem key={status} value={status}>
@@ -197,6 +199,7 @@ export default function AdminOrders() {
             ))}
           </TableBody>
         </Table>
+        </div>
       </CardContent>
     </Card>
   );

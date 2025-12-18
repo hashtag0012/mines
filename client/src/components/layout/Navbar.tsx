@@ -158,9 +158,17 @@ export function Navbar() {
               </Link>
             </>
           ) : (
-             <button onClick={() => { logout(); setIsMobileMenuOpen(false); }} className="text-xl uppercase tracking-widest cursor-pointer text-muted-foreground">
-               Logout
-             </button>
+            <>
+              <span className="text-xl uppercase tracking-widest text-muted-foreground">Hi, {user.name}</span>
+              {isAdmin && (
+                <Link href="/admin" onClick={() => setIsMobileMenuOpen(false)} className="text-xl uppercase tracking-widest underline">
+                  Admin
+                </Link>
+              )}
+              <button onClick={() => { logout(); setIsMobileMenuOpen(false); }} className="text-xl uppercase tracking-widest cursor-pointer text-muted-foreground">
+                Logout
+              </button>
+            </>
           )}
         </div>
       )}
