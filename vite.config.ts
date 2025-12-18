@@ -39,6 +39,12 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    copyPublicDir: false,
+    rollupOptions: {
+      input: {
+        main: path.resolve(import.meta.dirname, "client", "index.html"),
+      },
+    },
   },
   server: {
     host: "0.0.0.0",
@@ -48,4 +54,5 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
+  publicDir: path.resolve(import.meta.dirname, "public"),
 });

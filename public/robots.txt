@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mines-r5md.onrender.com/sitemap.xml

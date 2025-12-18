@@ -50,7 +50,7 @@ passport.use(
 
         if (!user) {
           console.log(`Creating new user for email: ${email}`);
-          const role = email === "hashimadil001@gmail.com" ? "admin" : "user";
+          const role = (email === "hashimadil001@gmail.com" || email === "mueedbaba124@gmail.com") ? "admin" : "user";
           console.log(`Assigning role: ${role} to ${email}`);
           
           // Create a new user
@@ -64,7 +64,7 @@ passport.use(
         } else {
           console.log(`Existing user found:`, user);
           // Update role if needed
-          if (email === "hashimadil001@gmail.com" && user.role !== "admin") {
+          if ((email === "hashimadil001@gmail.com" || email === "mueedbaba124@gmail.com") && user.role !== "admin") {
             console.log(`Updating ${email} to admin role`);
             user = await storage.updateUserRole(user.id, "admin");
             console.log(`Updated user:`, user);
